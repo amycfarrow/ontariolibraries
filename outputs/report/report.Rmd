@@ -1,0 +1,65 @@
+---
+title: 'Libraries, budgets, and services 2000-2019'
+author: "Amy Farrow"
+date: "`r format(Sys.time(), '%d %B %Y')`"
+output:
+  bookdown::pdf_document2:
+    toc: no
+subtitle: "INF1005 Assignment #3"
+abstract: "IN PROGRESS"
+thanks: 'Code and data are available at: [github.com/amycfarrow/ontariolibraries](https://github.com/amycfarrow/ontariolibraries).'
+bibliography: references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(bookdown)    # for cross referencing figures and graphs; referencing
+library(scales)      # for fixing date axes
+library(DescTools)   # for capitalizing graph labels
+library(lubridate)   # extract month from date_scored
+library(kableExtra)  # for nicer tables
+library(magrittr)
+```
+
+# Introduction
+
+# Data
+
+```{r}
+cleaned_data <- readr::read_csv(here::here("inputs/data/cleaned_data.csv"))
+```
+
+```{r}
+cleaned_data %>%
+  group_by(year) %>%
+  summarise(num_libraries = n_distinct(name),
+            mean_cardholders = mean(num_cardholders),
+            mean_expend_total = mean(expend_total_operating),
+            mean_population = mean(population))
+```
+
+```{r}
+cleaned_data %>%
+  group_by(type) %>%
+  summarise(num_libraries = n_distinct(name),
+            mean_cardholders = mean(num_cardholders))
+```
+```{r}
+cleaned_data %>%
+  #filter(type == "Public or Union Library") %>%
+  ggplot(aes(x = revenue_total_operating)) +
+  geom_density() +
+  facet_wrap( ~ year)
+```
+
+
+```{r}
+cleaned_data %>%
+  filter(type == "Public or Union Library") %>%
+  ggplot(aes(x = num_cardholders, y = revenue_total_operating)) +
+  geom_point(alpha = 0.05, color = "darkturquoise", size = .5) +
+  facet_wrap(~ year) +
+  theme_light()
+```
+
