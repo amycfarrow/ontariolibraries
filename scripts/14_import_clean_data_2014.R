@@ -33,8 +33,8 @@ data_2014 <- data_2014 %>%
          b4_01_materials, # budget spent on materials
          b4_02_staffing_total_funds_spent_on_all_staff_including_benefits,
          b5_0_total_operating_expenditures,
-         c1_2_t_total_volumes_held, # no c0_2_t_total_print_volumes_held
-         c2_3_3_t_total_no_of_titles_of_e_resources_including_e_books, # no c0_3_4_t_total_e_book_and_e_audio_copies,
+         c2_2_t_total_volumes_held, # no c0_2_t_total_print_volumes_held
+         c2_3_4_t_total_no_of_copies_of_e_resources_including_e_books, # no c0_3_4_t_total_e_book_and_e_audio_copies,
          # no c4_3_03_hoopla,
          # no c5_1_if_you_provide_e_learning_services_e_g_lynda_com_gale_courses_learning_express_please_state_how_many,
          # no c5_2_how_many_cardholders_took_e_learning_courses,
@@ -63,8 +63,8 @@ data_2014 <- data_2014 %>%
          expend_materials = b4_01_materials, # budget spent on materials
          expend_staff = b4_02_staffing_total_funds_spent_on_all_staff_including_benefits,
          expend_total_operating = b5_0_total_operating_expenditures,
-         num_print_volumes = c1_2_t_total_volumes_held,
-         num_e_book_audio_titles = c2_3_3_t_total_no_of_titles_of_e_resources_including_e_books,
+         num_print_volumes = c2_2_t_total_volumes_held,
+         num_e_book_audio_copies = c2_3_4_t_total_no_of_copies_of_e_resources_including_e_books,
          # hoopla = c4_3_03_hoopla,
          # num_e_learning_services = c5_1_if_you_provide_e_learning_services_e_g_lynda_com_gale_courses_learning_express_please_state_how_many,
          # num_took_e_learning_courses = c5_2_how_many_cardholders_took_e_learning_courses,
